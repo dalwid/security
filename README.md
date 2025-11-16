@@ -129,6 +129,23 @@ E selecione Placa de Rede Exclusiva de hospedeiro (host-only)
 </p>
 <img src="images/configurações das redes.png">
 <p>Clique em ok e depois repita o mesmo processo para o kali linux.</p>
+<p>
+Agora abra o  metasploitable com um duplo clique espere carregar tudo depois digite senha e usuário que ele mesmo te indicara
+</p>
+<img src="images/metasploit primeira imagem dele aberto.PNG">
+<p>
+Ao acessar digite ifconfig ou ip a  para visualizar o endereço ip da maquina como circulando na imagem abaixo: 
+</p>
+<img src="images/ifconfig metasploit.PNG">
+<pr>
+Esse circulado com a cor vermelha é o nosso ip alvo guarde bem ele e depois se quiser crie um snpashot pra salvarguardar o sistema de erros .
+</p>
 
-<!-- <p></p>
+<br>
+<hr>
+<br>
+
+<!-- <h3 align="center"></h3>
+
+<p></p>
 <img src="images/"> -->
