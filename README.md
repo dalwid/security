@@ -121,3 +121,14 @@ Clique em acrescentar e vai abrir uma janela e vai até onde vc descompactou o m
 <br>
 <hr>
 <br>
+
+<h3 align="center">Configurações das redes metasploitable e kali linux</h3>
+<p>
+Selecione metasploitable vá em configurações selecione redes e clique no ligado a, 
+E selecione Placa de Rede Exclusiva de hospedeiro (host-only) 
+</p>
+<img src="images/configurações das redes.png">
+<p>Clique em ok e depois repita o mesmo processo para o kali linux.</p>
+
+<!-- <p></p>
+<img src="images/"> -->
