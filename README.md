@@ -1,19 +1,19 @@
-<center style="font-size:40px; font-style:italic">Security</center>
+<h1 style="font-size:2.5rem; font-style:italic" align="center">Security</h1>
 
-<center>Este é um desafio da DIO patrocionado pela Santander.</center>
+<h2 align="center">Este é um desafio da DIO patrocionado pela Santander.</h2>
 <br>
 
 <p>
 Antes de começar abaixe o virtual box. Há dois sites que podem lhe oferecer o sistema de virtualização, o primeiro é do proprio virtualbox:<br>
 
 ```bash
-<div style="background-color:#27408B;color:#fff">https://www.virtualbox.org/wiki/Downloads</div>
+https://www.virtualbox.org/wiki/Downloads</div>
 ```
 <br>
 e o segundo é o site da oralce que comprouo o virtualbox e depois é só escolher seu sistema e sua arquiteruta, baixr e instalar.<br>
 
 ```bash
-<div style="background-color:#27408B;color:#fff;">https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html<div>
+https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html
 ```
 </p>
 
@@ -45,4 +45,34 @@ Depois clique para baixá-lo de acordo com a imagem abaixo:
 <p>Ao clicar no download você será redirecionado para outra página em seguida clique em virtual machines</p>
 <img src="images/escolher virtual box.png">
 <p>Ao clicar no VirtualBox o download iniciará.</p>
+
+
+
+<h1 align="center">Instalando o virtual box</h1>
+<p>
+Vá até onde você salvou o arquivo isso é onde você fez o download executê-o, vai abrir uma janela de permissão do firewal clique sim, depois aparecera a seguinte imagem: 
+</p>
+<img src="images/tela apresentação abertura virtual box.png">
+<p>Espere um instante e aparecerá uma janela  de bem vindo</p>
+<img src="images/janela de apresnetação do primeiro next.png">
+<p>
+Clica em next e aparecerera o contrato com a opção de aceitar o contrato desmarcado selecione o primeiro 
+</p>
+<img src="images/aceitar contrato.png">
+<p>Clique em next e aparecera outra tela</p>
+<img src="images/tela de costumização ir pra next direto.png">
+<p>Clique em next e aparecera uma tela avisando que não pode se desconectar da inter nete ou algo do tipo</p>
+<img src="images/tela de avisa que não pode se desconectar da net.png">
+<p>
+Clique me next e a prescera uma tela de dependências clica em next e aparecera outra tela seleciona tudo e clica em next, depois aparecera uma tela escrita install como na imagem abaixo: 
+</p>
+<img src="images/tela com botã ode install.png">
+<p>Clica install ele iniciara o processo de instalação</p>
+<img src="images/processo de instalação.png">
+<p>Depois aparecera a seguinte tela:</p>
+<img src="images/instalação concluida.png">
+<p>Clique me finish e abrirá o virtual box</p>
+<img src="images/virtualbox aberto.png">
+
+
 
