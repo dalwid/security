@@ -3,6 +3,29 @@
 <h2 align="center">Este é um desafio da DIO patrocionado pela Santander.</h2>
 <br>
 
+### Indice
+###### Downloads
+- [Baixando O Virtual Box](#-Baixando-O-Virtual-Box)
+- [Baixando Metasploitable 2](#-Baixando-Metasploitable-2)
+- [Baixando Kali linux](#-Baixando-Kali-linux)
+###### Instalações
+- [Instalando o virtual box](#-Instalando-o-virtual-box)
+- [Instalação do Kali linux no virtual box](#-Instalação-do-Kali-linux-no-virtual-box)
+- [Instalando  o metasploitable 2](#-Instalando-o-metasploitable-2)
+- [Configurações das redes metasploitable e kali linux](#-Configurações-das-redes-metasploitable-e-kali-linux)
+###### Ataques
+  - [Atacndo um servidor FTP](#-Atacndo-um-servidor-FTP)
+  - [DVWA](#DVWA)
+  - [Ataques smb](#-Ataques-smb)
+  - [Password Spraying](#-Password-Spraying)
+###### Pensando ....
+- [Minhas Reflexões](#-Minhas-Reflexões)
+
+<br><br><hr><br>
+
+<h2 align="center">Baixando O Virtual Box</h2>
+<br>
+
 <p>
 Antes de começar abaixe o virtual box. Há dois sites que podem lhe oferecer o sistema de virtualização, o primeiro é do proprio virtualbox:<br>
 
@@ -16,6 +39,9 @@ e o segundo é o site da oralce que comprouo o virtualbox e depois é só escolh
 https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html
 ```
 </p>
+<br>
+<hr>
+<br>
 
 <h3 align="center">Baixando Metasploitable 2</h3>
 
@@ -35,7 +61,14 @@ Depois clique para baixá-lo de acordo com a imagem abaixo:
 <p>Caso isso aconteça clique no botão uma nova página surgirá e download lhe perguntara ou abaixará automaticamente</p>
 <img src="images/donwload 2.png">
 
-<h3 align="center">Baixando Metasploitable 2</h3>
+
+
+<br>
+<hr>
+<br>
+
+<h3 align="center">Baixando Kali linux</h3>
+<br>
 <p>Para baixar o kali linux vc precisa ir no :</p>
 
 ```bash
@@ -291,8 +324,10 @@ smbclient -L //192.168.56.101 -U msfadmin
 <br><br>
 
 <hr>
-<h2 align="center">Minhas reflexões</h2>
-<p></p>
+<h2 align="center">Minhas Reflexões</h2>
+<br>
+<hr>
+
 <p>Aprendi que se vc nã otiver usando certos protocolos é bom fechar.</p>
 <p>Aprendi que nunca se deve deixar amostrar as versões dos progaams que vc está usando.</p>
 <p>Vi como a preguiça de fornecer o minimo de cuidado ou criar fomularios é tenebroso para ser</p>
