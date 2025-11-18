@@ -1,0 +1,5 @@
+cria uma aquivo com uma mini lista de usuarios
+echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
+
+cia uma mini lista com senhas
+echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt 

