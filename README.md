@@ -207,7 +207,7 @@ A saída lhe dará a combinação válida para você acessar o protocolo ftp com
 <h4 align="center">Damn Vulnerable Web Application</h4>
 
 <p>
-AAgora varemos um taques a formulários de login com força bruta
+Agora varemos um taques a formulários de login com força bruta
 
 eis o nosso fomulario de exemplo digite com seu ip alvo no navegador o seguinte</p>
 
@@ -224,11 +224,15 @@ O que faremos? nós iremos pegar a pagina e o corpo da requisição caso em seis
 ```bash
 medusa -h 192.168.56.101 -U users.txt -P pass.txt -M http \  -m PAGE: '/dvwa/login.php'\  -m FROM: 'Username=^USER^&password=^PASS^&Login=login' \  -m 'FAIL=login failed' -t 6 
 ```
-<img src="images/dvwa/atacando formulario de login.png"> 
+<img src="images/dvwa/atacando formulario de login.png">
+<p>Testando algumas senhas encontradas (FOUND)</p>
+<img src="images/dvwa/acessando com uma das senhas.png">
+<p>Se colocando umas das senhas descobertas burlar o login</p>
+<img src="images/dvwa/login burlado com sucesso.png">
 
 <h3 align="center">Ataques smb</h3>
 
-<h3 align="center">Ataques em cadeia</h3> 
+<h4 align="center">Ataques em cadeia</h4> 
 
 <p>Descobrindo serviços smb</p> 
 <p>Primeiro vamos usar um comando que vai ativar todo tipo de enumeração possível sobre nosso alvo:</p>
@@ -283,3 +287,20 @@ smbclient -L //192.168.56.101 -U msfadmin
 <img src="images/smb/acesso total ao administrador.png">
 
 <p>Agora o ataque foi bem-sucedido podemos agora navegar e fazermos o que bem entendermos com esse acesso nesta máquina</p>
+
+<br><br>
+
+<hr>
+<h2 align="center">Minhas reflexões</h2>
+<p></p>
+<p>Aprendi que se vc nã otiver usando certos protocolos é bom fechar.</p>
+<p>Aprendi que nunca se deve deixar amostrar as versões dos progaams que vc está usando.</p>
+<p>Vi como a preguiça de fornecer o minimo de cuidado ou criar fomularios é tenebroso para ser</p>
+<p>
+invadido por isso é bom usar Csrf que é uma medida de segurça para evitar que seus fomula´rios seja msequestrados
+frameworks como Laravel e spring bott tem esses mecanismo de segurança.
+</p>
+
+<p>É sempre bom ter senhas fortes e mecanismo de fato para se conectar aserviçõs
+sempre por um limite de acesso caso aja falhas.</p>
+
